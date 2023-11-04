@@ -6,6 +6,8 @@ var ball_to_launch = null
 var ball_fired = false
 var last_ball_position = Vector2()
 
+var mirror_scene = preload("res://Mirror.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var screen_size = get_viewport_rect().size
@@ -19,6 +21,11 @@ func _ready():
 	# Assuming 'Line2D' is already a node in the scene
 	$Line2D.width = 2
 	$Line2D.default_color = Color(1, 0, 0)  # Set line color to red
+	
+	# mirror
+	var mirror1 = mirror_scene.instantiate()
+	
+	
 	
 func _process(delta):
 	if Input.is_action_just_pressed("fire") and not ball_fired:
