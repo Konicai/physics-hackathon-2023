@@ -12,14 +12,10 @@ func _input(event):
 		add_child(new_ball)
 		
 	if event.is_action_pressed("mirror"):
-		makeMirror()
+		_placeMirror()
 
 
-
-
-
-_makeMirror():
+func _placeMirror():
 	var new_mirror = Mirror.instantiate()
-		new_mirror.position = get_viewport().get_mouse_position()
-		print("bruh")
-		add_child(new_mirror)
+	new_mirror.position = get_viewport().get_mouse_position()
+	add_child(new_mirror)
