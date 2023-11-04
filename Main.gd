@@ -19,3 +19,5 @@ func _placeMirror():
 	var new_mirror = Mirror.instantiate()
 	new_mirror.position = get_viewport().get_mouse_position()
 	add_child(new_mirror)
+
+
