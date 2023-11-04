@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dm5jrnxmxnuof"]
+[gd_scene load_steps=4 format=3 uid="uid://byhh6nlhv43kj"]
 
-[ext_resource type="Texture2D" uid="uid://dkq1swbmmxmbq" path="res://assets/Bouncy Platform Long.png" id="1_mx5gr"]
+[ext_resource type="Texture2D" uid="uid://dv6rx85s1gy3i" path="res://assets/ballBlue_10.png" id="1_lt7ri"]
 
 [sub_resource type="PhysicsMaterial" id="1"]
 
@@ -13,7 +13,7 @@ gravity_scale = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_mx5gr")
+texture = ExtResource("1_lt7ri")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("2")

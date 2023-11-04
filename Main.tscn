@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bc04jgq832nvc"]
+[gd_scene load_steps=13 format=3 uid="uid://b3yh2crbgpdj3"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://byhh6nlhv43kj" path="res://Ball.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://dkq1swbmmxmbq" path="res://assets/Bouncy Platform Long.png" id="3"]
 
 [sub_resource type="PhysicsMaterial" id="1"]

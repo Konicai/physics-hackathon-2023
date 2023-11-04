@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhmheeq7qw6b"]
+
+[ext_resource type="StyleBox" uid="uid://djro1jylh8c2p" path="res://main_menu_buttons.tres" id="1_2p1uw"]
+[ext_resource type="Script" path="res://main_menu_control.gd" id="1_ktf0y"]
+
+[sub_resource type="GDScript" id="GDScript_vxv8i"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="MainMenuControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1304.0
+offset_bottom = 710.0
+script = ExtResource("1_ktf0y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 180
+theme_override_constants/margin_bottom = 80
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Light Game"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="PlayBtn" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = ExtResource("1_2p1uw")
+text = "Play"
+script = SubResource("GDScript_vxv8i")
+
+[node name="CloseBtn" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = ExtResource("1_2p1uw")
+text = "Close"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayBtn" to="VBoxContainer/HBoxContainer/PlayBtn" method="_on_pressed"]
