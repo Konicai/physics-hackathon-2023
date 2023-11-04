@@ -24,9 +24,6 @@ func _process(delta):
 		rotate(speed * delta)
 		
 	# drag logic
-	
-func _input(event):
-	print("yeet")
 
 
 
@@ -35,3 +32,15 @@ func _on_mouse_entered():
 	
 func _on_mouse_exited():
 	mouse_hovering = false
+
+
+func _on_input(event):
+	print("fuck")
+	pass
+
+
+func _on_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if not event.pressed:
+				print("you let go")

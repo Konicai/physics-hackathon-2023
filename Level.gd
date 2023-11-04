@@ -1,7 +1,7 @@
 extends Node2D
 
 var ball_scene = preload("res://Photon.tscn")
-var launch_speed = Vector2(-500, 0)
+var launch_speed = Vector2(0, -500)
 var ball_to_launch = null
 var ball_fired = false
 var last_ball_position = Vector2()
@@ -24,6 +24,9 @@ func _ready():
 	
 	# mirror
 	var mirror1 = mirror_scene.instantiate()
+	mirror1.position = Vector2(screen_size.x / 2, screen_size.y / 2)
+	mirror1.rotate(PI / 4)
+	add_child(mirror1)
 	
 	
 	
@@ -63,3 +66,14 @@ func fire_ball():
 func _on_Ball_position_changed(new_position):
 	# Add the new position of the ball to the Line2D points
 	$Line2D.add_point(new_position)
+	
+
+func _input(event):
+	if event.is_action_pressed("mirror"):
+		_placeMirror()
+
+
+func _placeMirror():
+	var new_mirror = mirror_scene.instantiate()
+	new_mirror.position = get_viewport().get_mouse_position()
+	add_child(new_mirror)

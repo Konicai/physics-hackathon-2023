@@ -11,19 +11,20 @@ fill_from = Vector2(1, 0)
 fill_to = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmg2k"]
-size = Vector2(63, 262)
+size = Vector2(22.5, 262)
 
 [node name="Mirror" type="RigidBody2D"]
+gravity_scale = 0.0
+freeze = true
 script = ExtResource("1_tjdyq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 100)
-scale = Vector2(1, 4.125)
+scale = Vector2(0.34375, 4.125)
 texture = SubResource("GradientTexture2D_2pikc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 100)
 shape = SubResource("RectangleShape2D_tmg2k")
 
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
