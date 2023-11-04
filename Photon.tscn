@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://5xr7q6g57it8"]
+[gd_scene load_steps=3 format=3 uid="uid://hhrs2eeto311"]
 
-[ext_resource type="Texture2D" uid="uid://d37c5nxxdv746" path="res://Laser assets/icons8-ball-67.png" id="1_4jtgq"]
+[ext_resource type="Texture2D" uid="uid://d37c5nxxdv746" path="res://assets/photon.png" id="1_iniet"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wtx33"]
 
@@ -13,4 +13,4 @@ scale = Vector2(2.8, 2.8)
 shape = SubResource("CircleShape2D_wtx33")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4jtgq")
+texture = ExtResource("1_iniet")

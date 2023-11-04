@@ -1,6 +1,6 @@
 extends Node2D
 
-var ball_scene = preload("res://Laser assets/ball.tscn")
+var ball_scene = preload("res://Photon.tscn")
 var launch_speed = Vector2(0, -500)
 var ball_to_launch = null
 var ball_fired = false

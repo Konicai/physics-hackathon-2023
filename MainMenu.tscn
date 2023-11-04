@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhmheeq7qw6b"]
 
-[ext_resource type="StyleBox" path="res://main_menu_buttons.tres" id="1_2p1uw"]
-[ext_resource type="Script" path="res://main_menu_control.gd" id="1_ktf0y"]
-[ext_resource type="Script" path="res://SkyBackground.gd" id="2_nvifc"]
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_3yty3"]
+[ext_resource type="Script" path="res://SkyBackground.gd" id="2_h7bun"]
+[ext_resource type="StyleBox" path="res://main_menu_buttons.tres" id="3_0jjob"]
 
 [sub_resource type="GDScript" id="GDScript_vxv8i"]
 script/source = "extends Button
@@ -23,7 +23,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1304.0
 offset_bottom = 710.0
-script = ExtResource("1_ktf0y")
+script = ExtResource("1_3yty3")
 
 [node name="SkyBackground" type="ColorRect" parent="."]
 layout_mode = 1
@@ -33,7 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.180392, 0.239216, 0.435294, 1)
-script = ExtResource("2_nvifc")
+script = ExtResource("2_h7bun")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -62,14 +62,14 @@ alignment = 1
 [node name="PlayBtn" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/normal = ExtResource("1_2p1uw")
+theme_override_styles/normal = ExtResource("3_0jjob")
 text = "Play"
 script = SubResource("GDScript_vxv8i")
 
 [node name="CloseBtn" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/normal = ExtResource("1_2p1uw")
+theme_override_styles/normal = ExtResource("3_0jjob")
 text = "Close"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
