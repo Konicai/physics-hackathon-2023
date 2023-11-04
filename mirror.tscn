@@ -1,19 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://dj0xueptiv1vx"]
+[gd_scene load_steps=5 format=3 uid="uid://druuutmrodqgy"]
 
-[ext_resource type="Texture2D" uid="uid://dkq1swbmmxmbq" path="res://assets/Bouncy Platform Long.png" id="1_o2ysc"]
+[ext_resource type="Script" path="res://Mirror.gd" id="1_mou6j"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lc2ji"]
+[sub_resource type="Gradient" id="Gradient_1lbwk"]
+offsets = PackedFloat32Array(0.100457, 0.538813)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_haer6"]
-radius = 28.0
-height = 308.0
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2pikc"]
+gradient = SubResource("Gradient_1lbwk")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
 
-[node name="StaticBody2D" type="StaticBody2D"]
-physics_material_override = SubResource("PhysicsMaterial_lc2ji")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmg2k"]
+size = Vector2(63, 262)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_haer6")
+[node name="Mirror" type="RigidBody2D"]
+script = ExtResource("1_mou6j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_o2ysc")
+position = Vector2(0, 100)
+scale = Vector2(1, 4.125)
+texture = SubResource("GradientTexture2D_2pikc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 100)
+shape = SubResource("RectangleShape2D_tmg2k")

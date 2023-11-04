@@ -1,8 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://hhrs2eeto311"]
+[gd_scene load_steps=3 format=3 uid="uid://cj3t1skls7gob"]
 
 [ext_resource type="Texture2D" uid="uid://d37c5nxxdv746" path="res://assets/photon.png" id="1_iniet"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wtx33"]
+radius = 1.42857
 
 [node name="Ball" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -13,4 +14,5 @@ scale = Vector2(2.8, 2.8)
 shape = SubResource("CircleShape2D_wtx33")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.126866, 0.126866)
 texture = ExtResource("1_iniet")
