@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blqm0e7gm75u3"
-path="res://.godot/imported/Bouncy Platform Medium.png-7896338a5f44da1e83084c154a3c4a9e.ctex"
+uid="uid://d37c5nxxdv746"
+path="res://.godot/imported/photon.png-ee5275146a889d826193b806dabc0db9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bouncy Platform Medium.png"
-dest_files=["res://.godot/imported/Bouncy Platform Medium.png-7896338a5f44da1e83084c154a3c4a9e.ctex"]
+source_file="res://assets/photon.png"
+dest_files=["res://.godot/imported/photon.png-ee5275146a889d826193b806dabc0db9.ctex"]
 
 [params]
 
