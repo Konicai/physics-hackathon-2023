@@ -1,7 +1,19 @@
-[gd_scene format=3 uid="uid://cs3w2ju71m1rk"]
+[gd_scene load_steps=4 format=3 uid="uid://bhx6k5c5ire1p"]
 
-[node name="Mirror" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://dkq1swbmmxmbq" path="res://assets/Bouncy Platform Long.png" id="1_o2ysc"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lc2ji"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_haer6"]
+radius = 28.0
+height = 308.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_lc2ji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_haer6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_o2ysc")
