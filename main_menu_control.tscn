@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhmheeq7qw6b"]
 
-[ext_resource type="StyleBox" uid="uid://djro1jylh8c2p" path="res://main_menu_buttons.tres" id="1_2p1uw"]
+[ext_resource type="StyleBox" path="res://main_menu_buttons.tres" id="1_2p1uw"]
 [ext_resource type="Script" path="res://main_menu_control.gd" id="1_ktf0y"]
 [ext_resource type="Script" path="res://SkyBackground.gd" id="2_nvifc"]
 
