@@ -38,14 +38,10 @@ func _on_mouse_exited():
 
 
 func _on_input_event(viewport, event: InputEvent, shape_idx):
+	print(event)
 
 	if event.is_action_pressed("click"):
-		print("clicked")
-		if event.is_pressed():
-			print("pressed")
-			dragging = true
-		
-		if event.is_released():
-			print("released")
-			dragging = false
+		dragging = true
+	if event.is_action_released("click"):
+		dragging = false
 	
