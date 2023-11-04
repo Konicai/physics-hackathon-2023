@@ -10,16 +10,36 @@ config_version=5
 
 [application]
 
+<<<<<<< HEAD
 config/name="instancing"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.1")
+=======
+config/name="lightgame"
+run/main_scene="res://main_menu_control.tscn"
+config/features=PackedStringArray("4.1", "GL Compatibility")
+>>>>>>> a38bcba (Add theme and main menu)
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1300
+window/size/viewport_height=700
+window/size/resizable=false
 
 [dotnet]
 
 project/assembly_name="instancing"
 
+<<<<<<< HEAD
 [importer_defaults]
+=======
+[gui]
+
+theme/custom="res://main_theme.tres"
+
+[rendering]
+>>>>>>> a38bcba (Add theme and main menu)
 
 texture={
 "compress/hdr_mode": 0,
