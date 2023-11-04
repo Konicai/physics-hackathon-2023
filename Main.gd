@@ -8,7 +8,6 @@ func _input(event):
 	if event.is_action_pressed("click"):
 		var new_ball = Ball.instantiate()
 		new_ball.position = get_viewport().get_mouse_position()
-		print("sakdfjh")
 		add_child(new_ball)
 		
 	if event.is_action_pressed("mirror"):
