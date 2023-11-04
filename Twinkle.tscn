@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://caaeth7hilw76"]
+
+[ext_resource type="Texture2D" uid="uid://4kqlr6w58jnd" path="res://assets/twinkle.png" id="1_iro4i"]
+[ext_resource type="Script" path="res://Twinkle.gd" id="2_pvgyw"]
+
+[node name="Twinkle" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-9.53674e-07, 9.53674e-07)
+scale = Vector2(0.0118905, 0.0120787)
+texture = ExtResource("1_iro4i")
+script = ExtResource("2_pvgyw")
