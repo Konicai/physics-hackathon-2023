@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://brg41l57nj3f2"]
 
 [ext_resource type="Script" path="res://grav.gd" id="1_vyad1"]
-[ext_resource type="Texture2D" uid="uid://buw7fp0cy4g4k" path="res://assets/icons8-planet-64.png" id="2_531k2"]
+[ext_resource type="Texture2D" uid="uid://bew3ylooohind" path="res://Planet.png" id="2_eqsoy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6bf7"]
 radius = 208.062
@@ -19,4 +19,4 @@ shape = SubResource("CircleShape2D_c6bf7")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2, 3.00002)
 scale = Vector2(1.875, 1.79687)
-texture = ExtResource("2_531k2")
+texture = ExtResource("2_eqsoy")
