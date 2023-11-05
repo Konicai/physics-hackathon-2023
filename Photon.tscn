@@ -27,3 +27,4 @@ scale = Vector2(0.126866, 0.126866)
 texture = ExtResource("2_jd38x")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
