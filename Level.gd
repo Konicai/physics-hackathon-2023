@@ -12,11 +12,11 @@ var receptor_scene = preload("res://Receptor.tscn")
 var rng = RandomNumberGenerator.new()
 var planett = null
 var planetArr = []
-var rng = RandomNumberGenerator.new()
+
 var obsorber_scene = preload("res://Obsorbor.tscn")
 var mirror_count = 1
 var obsorber_count = 0
-var planetArr = []
+
 
 var won_round = false
 var lost_round = false
