@@ -1,20 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckq4u0h15jiyx"]
+[gd_scene load_steps=2 format=3 uid="uid://g03wjbso5brb"]
 
-[ext_resource type="Texture2D" path="res://assets/Lens.png" id="1_55fl6"]
-[ext_resource type="Script" path="res://Lens.gd" id="1_u7xts"]
+[ext_resource type="Script" path="res://Lens.gd" id="1_pqbtw"]
 
-[node name="Lens" type="Node2D"]
-script = ExtResource("1_u7xts")
+[node name="Lens" type="Area2D"]
+script = ExtResource("1_pqbtw")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(0, 68, -1, 68, -1, -68, 0, -68)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(1, 1)
-scale = Vector2(0.208256, 0.30125)
-texture = ExtResource("1_55fl6")
-
-[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
