@@ -10,6 +10,9 @@ var rotate_speed: float = PI
 var mouse_hovering: bool = false
 var dragging: bool = false
 
+# physics
+var expected_photons: Dictionary = {} 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	input_pickable = true
@@ -45,11 +48,15 @@ func add_linear_segment_collision(a: Vector2, b: Vector2):
 	
 	var collision: CollisionShape2D = CollisionShape2D.new()
 	collision.shape = segment
+	collision.name = "segmentcollision" + toString(a) + toString(b)
 	add_child(collision)
 	
 
 func toString(v: Vector2) -> String:
 	return "(" + str(v.x) + "," + str(v.y) + ")"
+	
+func toStringPolar(v: Vector2) -> String:
+	return "(" + str(v.angle() * 180 / PI) + " degrees, " + str(v.length()) + " long)"
 
 
 func _process(delta):
@@ -79,15 +86,75 @@ func _on_input_event(viewport, event: InputEvent, shape_idx):
 	if event.is_action_released("click"):
 		dragging = false
 
-
+# used for overall entering
 func _on_body_entered(body: Node2D):
 	if "ball" in body.name.to_lower():
-		print("dookey")
+		print("entered lens")
+		expected_photons[body] = true
+
+# used for overall exiting
+func _on_body_exited(body: Node2D):
+	if "ball" in body.name.to_lower():
+		print("exiting lens")
+		expected_photons.erase(body)
+		
+func toDegrees(rads: float) -> float:
+	return rads * 180 / PI
 		
 
-func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	print()
-	print("body rid: " + str(body_rid))
-	print("body: " + str(body))
-	print("body shape index: " + str(body_shape_index))
-	print("local shape index: " + str(local_shape_index))
+func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int):
+
+	var collision = get_child(local_shape_index)
+	if not ("Ball" in body.name and "segmentcollision" in collision.name):
+		return
+		
+	print("hit collider: " + collision.name)
+	var shape: SegmentShape2D = collision.get_shape()
+
+	
+	var interface_vec: Vector2 = shape.a - shape.b
+	
+	# shape coordinations don't take rotation into account
+	interface_vec = interface_vec.rotated(rotation)
+	
+	var ray_velocity: Vector2 = body.linear_velocity
+
+	var angle = interface_vec.angle_to(ray_velocity)
+	
+	angle = abs(angle)
+	if angle > PI / 4:
+		angle = PI / 2 - angle
+	
+		
+
+	print("a: " + toString(shape.a))
+	print("b: " + toString(shape.b))
+	print("ray velocity: " + toStringPolar(ray_velocity))
+	print("interface vec: " + toStringPolar(interface_vec)) 
+	print("angle: " + str(toDegrees(angle)))
+	
+	var n1: float
+	var n2: float
+	if body in expected_photons:
+		print("entering")
+		# entering
+		n1 = 1
+		n2 = 1.5
+		expected_photons.erase(body)
+	else:
+		print("exiting")
+		n1 = 1.5
+		n2 = 1
+		
+	var angle_1 = angle
+	
+	# n1sin1  =n2sin2
+	#n1/n2 * sin1 = sin2
+	
+	var angle_2 = asin((n1 / n2) * sin(angle_1))
+	
+	var angle_diff = angle_2 - angle_1
+	
+	body.linear_velocity = body.linear_velocity.rotated(angle_diff)
+
+

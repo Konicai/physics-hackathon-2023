@@ -67,6 +67,10 @@ obsorbor={
 ]
 }
 
+[physics]
+
+common/physics_ticks_per_second=200
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.101961, 0.223529, 0.415686, 1)
