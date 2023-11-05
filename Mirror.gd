@@ -2,7 +2,6 @@ extends RigidBody2D
 
 
 var rotate_speed: float = PI
-
 var mouse_hovering: bool = false
 var dragging: bool = false
 

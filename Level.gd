@@ -1,12 +1,14 @@
 extends Node2D
 
 var ball_scene = preload("res://Photon.tscn")
-var launch_speed = Vector2(0, -500)
+var launch_speed = Vector2(0, -200)
 var ball_to_launch = null
 var ball_fired = false
 var last_ball_position = Vector2()
 
 var mirror_scene = preload("res://Mirror.tscn")
+var planet = preload("res://Grav.tscn")
+var planett = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,7 +31,9 @@ func _ready():
 	mirror1.rotate(PI / 4)
 	add_child(mirror1)
 	
-	
+	planett = planet.instantiate()
+	planett.position = Vector2(screen_size.x / 2, screen_size.y/2)
+	add_child(planett)
 	
 func _process(delta):
 	if Input.is_action_just_pressed("fire") and not ball_fired:
