@@ -13,6 +13,9 @@ var rng = RandomNumberGenerator.new()
 var planett = null
 var planetArr = []
 
+var won_round = false
+var lost_round = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -73,8 +76,6 @@ func _ready():
 
 	
 func _process(delta):
-	if Input.is_action_just_pressed("fire") and not ball_fired:
-		fire_ball()
 	if $Line2D.get_point_count() > 0:
 		$Line2D.set_point_position($Line2D.get_point_count() - 1, $Ball.position)
 	if ball_to_launch and ball_to_launch.position != last_ball_position:
@@ -85,21 +86,38 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if ball_to_launch and not ball_fired:
-		ball_to_launch.apply_impulse(launch_speed)
-		ball_fired = true
-		# Clear previous points when a new ball is launched
-		$Line2D.points.clear()
+	if ball_to_launch: 
+		if not ball_fired:
+			ball_to_launch.apply_impulse(launch_speed)
+			ball_fired = true
+			# Clear previous points when a new ball is launched
+			$Line2D.points.clear()
+		elif ball_to_launch.isFrozen():
+			ball_to_launch.set_freeze_enabled(true)
+			won_round = ball_to_launch.didWin()
+			lost_round = ball_to_launch.didLose()
+	
+			
+			
+	
 
 
 func fire_ball():
-	var ball_instance = ball_scene.instantiate()
-	ball_instance.sleeping = false
-	ball_instance.position = $laser.global_position + Vector2(-15, 0)
-	
-	add_child(ball_instance)
-	ball_to_launch = ball_instance
-	last_ball_position = ball_to_launch.position
+	print("firing, ball fired is: " + str(ball_fired))
+	if ball_fired == false:
+		var ball_instance = ball_scene.instantiate()
+		ball_instance.sleeping = false
+		ball_instance.position = $laser.global_position + Vector2(-15, 0)
+		
+		add_child(ball_instance)
+		ball_to_launch = ball_instance
+		last_ball_position = ball_to_launch.position
+	else:
+		print("removing")
+		$Line2D.points = []
+		remove_child(ball_to_launch)
+		ball_to_launch = null
+		ball_fired = false
 	# Connect 'position_changed' signal to the method to update the line
 	# ball_instance.connect("position_changed", Callable(self, "_on_Ball_position_changed"))
 
@@ -113,9 +131,20 @@ func _on_Ball_position_changed(new_position):
 func _input(event):
 	if event.is_action_pressed("mirror"):
 		_placeMirror()
+	elif event.is_action_pressed("fire"):
+		fire_ball()
+	elif event.is_action_pressed("Obsorber"):
+		fire_ball()
 
+func _placeObsorber():
+	var new_obsorber = obsorber_scene.instantiate()
+	new_obsorber.position = get_viewport().get_mouse_position()
+	new_obsorber.name = "Obsorber" + str(mirror_count)
+	add_child(new_obsorber)
 
 func _placeMirror():
+	mirror_count = mirror_count + 1
 	var new_mirror = mirror_scene.instantiate()
 	new_mirror.position = get_viewport().get_mouse_position()
+	new_mirror.name = "mirror" + str(mirror_count)
 	add_child(new_mirror)

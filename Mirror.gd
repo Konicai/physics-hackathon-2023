@@ -42,3 +42,7 @@ func _on_input_event(viewport, event: InputEvent, shape_idx):
 	if event.is_action_released("click"):
 		dragging = false
 
+
+
+func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	pass # Replace with function body.

@@ -1,21 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc2agamybf56"]
+[gd_scene load_steps=3 format=3 uid="uid://dc2agamybf56"]
 
+[ext_resource type="Script" path="res://Receptor.gd" id="1_8b8p1"]
 [ext_resource type="Texture2D" uid="uid://bogocwvvjpwdf" path="res://assets/receptor.png" id="1_b7yrq"]
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Receptor" type="RigidBody2D"]
+input_pickable = true
 gravity_scale = 0.0
+max_contacts_reported = 10
+contact_monitor = true
+can_sleep = false
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_8b8p1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(36, 43)
+position = Vector2(-11.2, 3.67601)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_b7yrq")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-52.14, 1.72002)
-scale = Vector2(0.2, 0.2)
-polygon = PackedVector2Array(332, 34, 395, 52, 452, 96, 553, 96, 552, 311, 454, 313, 405, 354, 338, 376, 395, 340, 441, 206, 396, 81)
+z_index = 1
+z_as_relative = false
+position = Vector2(-90.2154, -37.604)
+scale = Vector2(0.184239, 0.2)
+build_mode = 1
+polygon = PackedVector2Array(330.7, 31.3999, 400.7, 46.3999, 455.7, 91.3999, 555.7, 91.3999, 560.7, 321.4, 455.7, 321.4, 410.7, 361.4, 338, 376, 395, 340, 441, 206, 396, 81)
 
 [node name="ReceptorCollision" type="CollisionPolygon2D" parent="."]
-position = Vector2(-52.14, 1.72002)
-scale = Vector2(0.2, 0.2)
-polygon = PackedVector2Array(331, 36, 385, 112, 404, 204, 384, 308, 331, 375, 360, 360, 406, 301, 420, 206, 402, 109)
+z_as_relative = false
+position = Vector2(-97.399, -38.05)
+scale = Vector2(0.195868, 0.200962)
+polygon = PackedVector2Array(330.255, 33.4693, 380.44, 108.11, 400.514, 207.632, 380.7, 306.4, 330.255, 371.842, 350.329, 371.842, 395.495, 341.986, 440.661, 207.632, 395.495, 83.23)
+one_way_collision_margin = 5.0
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
