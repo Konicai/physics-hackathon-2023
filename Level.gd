@@ -17,6 +17,7 @@ var obsorber_scene = preload("res://Obsorbor.tscn")
 var mirror_count = 1
 var obsorber_count = 0
 
+var lens_scene = preload("res://Lens.tscn")
 
 var won_round = false
 var lost_round = false
@@ -38,6 +39,10 @@ func _ready():
 	planett = planet.instantiate()
 	planett.position = Vector2(screen_size.x - 500, screen_size.y - 500)
 	add_child(planett)
+
+    #lens
+    var lens1 = lens_scene.instantiate()
+    add_child(lens1)
 
 	$laser.position = Vector2(screen_size.x - 100, screen_size.y - 100)
 	$laser.rotate(-PI/2)
