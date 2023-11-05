@@ -5,6 +5,7 @@ var launch_speed = Vector2(-1500, 0)
 var ball_to_launch = null
 var ball_fired = false
 var last_ball_position = Vector2()
+
 var mirror_scene = preload("res://Mirror.tscn")
 var planet = preload("res://Grav.tscn")
 var receptor_scene = preload("res://Receptor.tscn")
@@ -83,7 +84,7 @@ func _physics_process(delta):
 
 
 func fire_ball():
-	reduce_tries()
+	Attempts.reduce_attempts()
 	set_try_label()
 
 	print("firing, ball fired is: " + str(ball_fired))
@@ -111,27 +112,16 @@ func _on_Ball_position_changed(new_position) -> void:
 	$Line2D.add_point(new_position)
 	
 func set_try_label() -> void:
-	if check_tries():
-		print("yes")
-		$UI/TryLabel.text = "Tries left: %s" % Attempts.remainingAttempts
-
+	if Attempts.check_attempts():
+		$UI/TryLabel.text = "Tries left: %s" % Attempts.get_attempts()
+		
 func _input(event):
 	if event.is_action_pressed("mirror"):
 		_placeMirror()
-	elif event.is_action_pressed("fire"):
-		fire_ball()
-	elif event.is_action_pressed("Obsorber"):
-		fire_ball()
-
-func check_tries() -> bool: #likely can be used for checking game condition
-	if(Attempts.remainingAttempts > 0):
-		return true
-	else:
-		return false
-
-func reduce_tries() -> void:
-	Attempts.remainingAttempts -= 1
-
+    elif event.is_action_pressed("fire"):
+        fire_ball()
+    elif event.is_action_pressed("Obsorber"):
+        fire_ball()
 
 func _placeObsorber():
 	var new_obsorber = obsorber_scene.instantiate()
