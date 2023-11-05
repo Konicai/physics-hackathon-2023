@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctpnpfqedc6jl"]
+[gd_scene load_steps=5 format=3 uid="uid://cyg5qtyorh1sv"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_3yty3"]
 [ext_resource type="Script" path="res://SkyBackground.gd" id="2_h7bun"]

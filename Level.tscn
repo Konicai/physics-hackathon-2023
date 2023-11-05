@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq4fsaxnb7c0s"]
+[gd_scene load_steps=10 format=3 uid="uid://cm88te2yl5m06"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_5qf71"]
 [ext_resource type="Texture2D" uid="uid://be6tqn35jxum8" path="res://assets/emitter.png" id="2_dbbpf"]
@@ -65,3 +65,21 @@ physics_material_override = SubResource("PhysicsMaterial_mlkn0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rightWall"]
 shape = SubResource("WorldBoundaryShape2D_14xyn")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TryLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.653
+anchor_bottom = 0.243
+offset_left = 498.0
+offset_top = 32.0
+offset_right = 1149.88
+offset_bottom = 125.28
+theme_override_font_sizes/font_size = 50
+text = "tries left: 3"
