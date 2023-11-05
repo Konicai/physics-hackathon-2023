@@ -46,7 +46,7 @@ func _ready():
 	$rightWall.position = Vector2(screen_size.x, screen_size.y / 2)
 	$leftWall.position = Vector2(0, screen_size.y / 2)
 	$UI/TryLabel.position = Vector2(screen_size.x-380, 50)
-	
+
 	set_try_label()
 
 	# Assuming 'Line2D' is already a node in the scene
@@ -114,19 +114,20 @@ func _on_Ball_position_changed(new_position) -> void:
 func set_try_label() -> void:
 	if Attempts.check_attempts():
 		$UI/TryLabel.text = "Tries left: %s" % Attempts.get_attempts()
-		
+
 func _input(event):
 	if event.is_action_pressed("mirror"):
 		_placeMirror()
 	elif event.is_action_pressed("fire"):
 		fire_ball()
-	elif event.is_action_pressed("Obsorber"):
+	elif event.is_action_pressed("obsorbor"):
 		fire_ball()
 
 func _placeObsorber():
+	obsorber_count = obsorber_count + 1
 	var new_obsorber = obsorber_scene.instantiate()
 	new_obsorber.position = get_viewport().get_mouse_position()
-	new_obsorber.name = "Obsorber" + str(mirror_count)
+	new_obsorber.name = "Obsorber" + str(obsorber_count)
 	add_child(new_obsorber)
 
 func _placeMirror():
