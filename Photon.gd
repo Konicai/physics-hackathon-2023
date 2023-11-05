@@ -1,12 +1,12 @@
 extends RigidBody2D
-
+var won_round = false
+var lost_round = false
 var frozen = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("photon ready")
-	freeze = false
-	#set_freeze_enabled(true)
-	set_freeze_mode(0)
+	frozen = false
+
 	pass # Replace with function body.
 
 
@@ -14,6 +14,11 @@ func _ready():
 func _process(delta):
 	pass
 
+func didWin():
+	return won_round
+
+func didLose():
+	return lost_round
 
 func isFrozen():
 	return frozen
@@ -24,6 +29,7 @@ func _on_body_entered(body):
 #		get_tree().paused = true
 		print("freezing")
 		frozen = true
+		lost_round = true
 		
 		
 func _physics_process(delta):
@@ -37,4 +43,5 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 	print("BSI: " + str(body_shape_index))
 	if body_shape_index > 0:
 		frozen = true
+		won_round = true
 		

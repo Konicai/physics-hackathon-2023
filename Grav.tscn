@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://de40o7xjxol5"]
+[gd_scene load_steps=4 format=3 uid="uid://brg41l57nj3f2"]
 
 [ext_resource type="Script" path="res://grav.gd" id="1_vyad1"]
-[ext_resource type="Texture2D" uid="uid://bew3ylooohind" path="res://Planet.png" id="2_rwswq"]
+[ext_resource type="Texture2D" uid="uid://buw7fp0cy4g4k" path="res://assets/icons8-planet-64.png" id="2_531k2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6bf7"]
 radius = 208.062
@@ -9,7 +9,7 @@ radius = 208.062
 [node name="Node2D" type="Area2D"]
 gravity_space_override = 1
 gravity_point = true
-gravity = 900.0
+gravity = 2000.0
 script = ExtResource("1_vyad1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -17,6 +17,6 @@ position = Vector2(2, 7)
 shape = SubResource("CircleShape2D_c6bf7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, 2)
-scale = Vector2(2.22, 2.295)
-texture = ExtResource("2_rwswq")
+position = Vector2(2, 3.00002)
+scale = Vector2(1.875, 1.79687)
+texture = ExtResource("2_531k2")
