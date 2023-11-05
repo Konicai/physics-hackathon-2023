@@ -3,16 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://bogocwvvjpwdf" path="res://assets/receptor.png" id="1_b7yrq"]
 
 [node name="RigidBody2D" type="RigidBody2D"]
+gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(442, 207)
+position = Vector2(36, 43)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_b7yrq")
-metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-52.14, 1.72002)
+scale = Vector2(0.2, 0.2)
 polygon = PackedVector2Array(332, 34, 395, 52, 452, 96, 553, 96, 552, 311, 454, 313, 405, 354, 338, 376, 395, 340, 441, 206, 396, 81)
-metadata/_edit_lock_ = true
 
 [node name="ReceptorCollision" type="CollisionPolygon2D" parent="."]
+position = Vector2(-52.14, 1.72002)
+scale = Vector2(0.2, 0.2)
 polygon = PackedVector2Array(331, 36, 385, 112, 404, 204, 384, 308, 331, 375, 360, 360, 406, 301, 420, 206, 402, 109)
-metadata/_edit_lock_ = true

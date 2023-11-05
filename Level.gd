@@ -1,30 +1,25 @@
 extends Node2D
 
 var ball_scene = preload("res://Photon.tscn")
-var launch_speed = Vector2(0, -200)
+var launch_speed = Vector2(-1500, 0)
 var ball_to_launch = null
 var ball_fired = false
 var last_ball_position = Vector2()
 
 var mirror_scene = preload("res://Mirror.tscn")
 var planet = preload("res://Grav.tscn")
+var receptor_scene = preload("res://Receptor.tscn")
+
 var planett = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("hey")
+	
 	var screen_size = get_viewport_rect().size
-	$laser.position = Vector2(screen_size.x / 2, screen_size.y - 200)
-	$topWall.position = Vector2(screen_size.x / 2, 0)
-	$bottomWall.position = Vector2(screen_size.x / 2, screen_size.y)
-	$rightWall.position = Vector2(screen_size.x, screen_size.y / 2)
-	$leftWall.position = Vector2(0, screen_size.y / 2)
-	
-	
-	# Assuming 'Line2D' is already a node in the scene
-	$Line2D.width = 2
-	$Line2D.default_color = Color(1, 0, 0)  # Set line color to red
-	
+	var receptor = receptor_scene.instantiate()
+	receptor.position = Vector2(50,50)
+	receptor.rotate(180)
+	add_child(receptor)
 	# mirror
 	var mirror1 = mirror_scene.instantiate()
 	mirror1.position = Vector2(screen_size.x / 2, screen_size.y / 2)
@@ -32,8 +27,22 @@ func _ready():
 	add_child(mirror1)
 	
 	planett = planet.instantiate()
-	planett.position = Vector2(screen_size.x / 2, screen_size.y/2)
+	planett.position = Vector2(screen_size.x - 200, screen_size.y-250)
 	add_child(planett)
+	
+	$laser.position = Vector2(screen_size.x - 100, screen_size.y - 100)
+	$laser.rotate(-PI/2)
+	$topWall.position = Vector2(screen_size.x / 2, 0)
+	$bottomWall.position = Vector2(screen_size.x / 2, screen_size.y)
+	$rightWall.position = Vector2(screen_size.x, screen_size.y / 2)
+	$leftWall.position = Vector2(0, screen_size.y / 2)
+	
+	# Assuming 'Line2D' is already a node in the scene
+	$Line2D.width = 2
+	$Line2D.default_color = Color(1, 0, 0)  # Set line color to red
+	
+	
+
 	
 func _process(delta):
 	if Input.is_action_just_pressed("fire") and not ball_fired:
@@ -58,7 +67,7 @@ func _physics_process(delta):
 func fire_ball():
 	var ball_instance = ball_scene.instantiate()
 	ball_instance.sleeping = false
-	ball_instance.position = $laser.global_position + Vector2(0, -15)
+	ball_instance.position = $laser.global_position + Vector2(-15, 0)
 	
 	add_child(ball_instance)
 	ball_to_launch = ball_instance

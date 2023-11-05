@@ -13,10 +13,15 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	print("collided with")
-	print(body.name)
-	
-	if body.name == "rightWall":
-		print("Ball has collided with the right wall!")
+	if "Wall" in body.name or "Obsorber" in body.name:
+		get_tree().paused = true
+		for bod in get_tree().get_nodes_in_group("physics_bodies"):
+			bod.linear_velocity = Vector2.ZERO
+			bod.angular_velocity = 0
 		
-
+		
+func _physics_process(delta):
+	# Assuming gravity is along the y-axis
+	var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
+	var gravity_force = Vector2(0, 1.005) * gravity_value * mass
+	apply_central_impulse(-gravity_force * delta)

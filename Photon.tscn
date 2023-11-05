@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj3t1skls7gob"]
 
 [ext_resource type="Script" path="res://Photon.gd" id="1_ack88"]
-[ext_resource type="Texture2D" uid="uid://bloo1bps06r6j" path="res://100x100_Pixel_Canvas.png" id="2_jd38x"]
+[ext_resource type="Texture2D" uid="uid://bloo1bps06r6j" path="res://100x100_Pixel_Canvas.png" id="2_by5re"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uhduo"]
 friction = 0.0
@@ -13,10 +13,10 @@ radius = 1.42857
 [node name="Ball" type="RigidBody2D"]
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_uhduo")
-gravity_scale = 0.0
 max_contacts_reported = 50
 contact_monitor = true
 can_sleep = false
+lock_rotation = true
 script = ExtResource("1_ack88")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,7 +24,7 @@ scale = Vector2(2.8, 2.8)
 shape = SubResource("CircleShape2D_wtx33")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.126866, 0.126866)
-texture = ExtResource("2_jd38x")
+scale = Vector2(0.0867165, 0.0867165)
+texture = ExtResource("2_by5re")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

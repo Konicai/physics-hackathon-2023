@@ -8,6 +8,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var velocity:= (get_global_mouse_position() - global_position)
-	global_position +=velocity
+	#var velocity:= (get_global_mouse_position() - global_position)
+	#global_position +=velocity
 	pass
