@@ -4,6 +4,8 @@ extends RigidBody2D
 var rotate_speed: float = PI
 
 var mouse_hovering: bool = false
+var dragging: bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,18 +14,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	# rotate logic
-	var clockwise = Input.is_action_pressed("rotate_clockwise")
-	var counter = Input.is_action_pressed("rotate_counter_clockwise")
-	if mouse_hovering and (clockwise or counter):
-		var speed = rotate_speed
-		if counter:
-			speed *= -1
-		
-		rotate(speed * delta)
-		
-	# drag logic
+
+	if Input.is_action_pressed("rotate_clockwise") or Input.is_action_pressed("rotate_counter_clockwise"):
+
+		if mouse_hovering:
+			var speed = rotate_speed
+			if Input.is_action_pressed("rotate_counter_clockwise"):
+				speed *= -1
+
+			rotate(speed * delta)
+
+	if dragging:
+		global_position = get_global_mouse_position()
 
 
 
@@ -34,22 +36,10 @@ func _on_mouse_exited():
 	mouse_hovering = false
 
 
-func _on_input(event):
-	print("fuck")
-	pass
 
+func _on_input_event(viewport, event: InputEvent, shape_idx):
+	if event.is_action_pressed("click"):
+		dragging = true
+	if event.is_action_released("click"):
+		dragging = false
 
-func _on_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if not event.pressed:
-				print("you let go")
-
-
-func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	print("mirror hit")
- # Replace with function body.
-
-
-func _on_body_entered(body):
-	print("mirror hit2") # Replace with function body.
