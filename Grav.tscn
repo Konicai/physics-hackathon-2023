@@ -9,7 +9,7 @@ radius = 208.062
 [node name="Node2D" type="Area2D"]
 gravity_space_override = 1
 gravity_point = true
-gravity = 2000.0
+gravity = 2525.13
 script = ExtResource("1_vyad1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

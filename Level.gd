@@ -11,6 +11,7 @@ var planet = preload("res://Grav.tscn")
 var receptor_scene = preload("res://Receptor.tscn")
 var obsorber_scene = preload("res://Obsorbor.tscn")
 var mirror_count = 1
+var obsorber_count = 0
 var planett = null
 
 var won_round = false
@@ -110,9 +111,10 @@ func _input(event):
 		fire_ball()
 
 func _placeObsorber():
+	obsorber_count = obsorber_count + 1
 	var new_obsorber = obsorber_scene.instantiate()
 	new_obsorber.position = get_viewport().get_mouse_position()
-	new_obsorber.name = "Obsorber" + str(mirror_count)
+	new_obsorber.name = "Obsorber" + str(obsorber_count)
 	add_child(new_obsorber)
 
 func _placeMirror():
