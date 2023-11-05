@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj3t1skls7gob"]
 
 [ext_resource type="Script" path="res://Photon.gd" id="1_ack88"]
-[ext_resource type="Texture2D" uid="uid://d37c5nxxdv746" path="res://assets/photon.png" id="1_iniet"]
+[ext_resource type="Texture2D" uid="uid://bloo1bps06r6j" path="res://100x100_Pixel_Canvas.png" id="2_jd38x"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uhduo"]
 friction = 0.0
@@ -25,6 +25,6 @@ shape = SubResource("CircleShape2D_wtx33")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.126866, 0.126866)
-texture = ExtResource("1_iniet")
+texture = ExtResource("2_jd38x")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
