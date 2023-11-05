@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cynoq5l1twkh7"]
+[gd_scene load_steps=5 format=3 uid="uid://ctpnpfqedc6jl"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_3yty3"]
 [ext_resource type="Script" path="res://SkyBackground.gd" id="2_h7bun"]
-[ext_resource type="StyleBox" path="res://main_menu_buttons.tres" id="3_0jjob"]
+[ext_resource type="StyleBox" uid="uid://djro1jylh8c2p" path="res://main_menu_buttons.tres" id="3_0jjob"]
 
 [sub_resource type="GDScript" id="GDScript_vxv8i"]
 script/source = "extends Button

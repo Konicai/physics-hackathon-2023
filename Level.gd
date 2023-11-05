@@ -27,7 +27,7 @@ func _ready():
 	add_child(mirror1)
 	
 	planett = planet.instantiate()
-	planett.position = Vector2(screen_size.x - 200, screen_size.y-250)
+	planett.position = Vector2(randi() % -200, randi() % 200)
 	add_child(planett)
 	
 	$laser.position = Vector2(screen_size.x - 100, screen_size.y - 100)
