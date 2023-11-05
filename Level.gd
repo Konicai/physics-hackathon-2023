@@ -5,7 +5,6 @@ var launch_speed = Vector2(-1500, 0)
 var ball_to_launch = null
 var ball_fired = false
 var last_ball_position = Vector2()
-var tries = 3
 var mirror_scene = preload("res://Mirror.tscn")
 var planet = preload("res://Grav.tscn")
 var receptor_scene = preload("res://Receptor.tscn")
@@ -45,8 +44,8 @@ func _ready():
 	$bottomWall.position = Vector2(screen_size.x / 2, screen_size.y)
 	$rightWall.position = Vector2(screen_size.x, screen_size.y / 2)
 	$leftWall.position = Vector2(0, screen_size.y / 2)
-	$UI/TryLabel.position = Vector2(screen_size.x-350, 50)
-
+	$UI/TryLabel.position = Vector2(screen_size.x-380, 50)
+	
 	set_try_label()
 
 	# Assuming 'Line2D' is already a node in the scene
@@ -84,7 +83,7 @@ func _physics_process(delta):
 
 
 func fire_ball():
-    reduce_try()
+	reduce_tries()
 	set_try_label()
 
 	print("firing, ball fired is: " + str(ball_fired))
@@ -107,12 +106,14 @@ func fire_ball():
 
 
 # This method will be called when the 'position_changed' signal is emitted
-func _on_Ball_position_changed(new_position):
+func _on_Ball_position_changed(new_position) -> void:
 	# Add the new position of the ball to the Line2D points
 	$Line2D.add_point(new_position)
 	
 func set_try_label() -> void:
-	$UI/TryLabel.text = "Tries left: %s" % tries
+	if check_tries():
+		print("yes")
+		$UI/TryLabel.text = "Tries left: %s" % Attempts.remainingAttempts
 
 func _input(event):
 	if event.is_action_pressed("mirror"):
@@ -122,8 +123,14 @@ func _input(event):
 	elif event.is_action_pressed("Obsorber"):
 		fire_ball()
 
-func reduce_try():
-	tries -= 1
+func check_tries() -> bool: #likely can be used for checking game condition
+	if(Attempts.remainingAttempts > 0):
+		return true
+	else:
+		return false
+
+func reduce_tries() -> void:
+	Attempts.remainingAttempts -= 1
 
 
 func _placeObsorber():
