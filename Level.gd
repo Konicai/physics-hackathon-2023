@@ -9,8 +9,9 @@ var last_ball_position = Vector2()
 var mirror_scene = preload("res://Mirror.tscn")
 var planet = preload("res://Grav.tscn")
 var receptor_scene = preload("res://Receptor.tscn")
-
+var rng = RandomNumberGenerator.new()
 var planett = null
+var planetArr = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,15 +21,42 @@ func _ready():
 	receptor.position = Vector2(50,50)
 	receptor.rotate(180)
 	add_child(receptor)
-	# mirror
-	var mirror1 = mirror_scene.instantiate()
-	mirror1.position = Vector2(screen_size.x / 2, screen_size.y / 2)
-	mirror1.rotate(PI / 4)
-	add_child(mirror1)
 	
-	planett = planet.instantiate()
-	planett.position = Vector2(randi() % -200, randi() % 200)
-	add_child(planett)
+	var numPlanet = rng.randi_range(1,4)
+	for i in range(numPlanet):
+		planett = planet.instantiate()
+		var randX
+		var randY
+		var new_pos
+		var rand_scale = randi_range(1,4)
+		planett.get_node("./Sprite2D").scale = Vector2(rand_scale,
+						rand_scale)
+		var new_size = planett.get_node("./Sprite2D").texture.get_size()
+		while true:
+			randX = rng.randi_range(100+new_size.x,
+							screen_size.x-100-new_size.x)
+			randY = rng.randi_range(0,screen_size.y)
+			
+			new_pos = Vector2(randX,randY)
+			var valid = true
+			for j in range(len(planetArr)):
+				var old_pos = planetArr[j].get_position()
+				var old_size = planetArr[j].get_node("./Sprite2D").texture.get_size()
+				print(old_pos)
+				print(old_size)
+				print(new_pos)
+				print(new_size)
+				if((old_pos.y + 2*old_size.y > new_pos.y and new_pos.y+2*new_size.y >old_pos.y)
+					and (old_pos.x + 2*old_size.x > new_pos.x and new_pos.x+2*new_size.x >old_pos.x)):
+					valid = false
+			print(valid)
+			if(valid and !(randX > 2*screen_size.x/3 and randY > 2*screen_size.y/3)
+				and !(randX < screen_size.x/3 and randY < screen_size.y/3)):
+				break
+		planett.position = new_pos
+		planett.get_node("./Sprite2D").set_modulate(Color(rng.randf_range(0.33,0.5),rng.randf_range(0.4,0.9),rng.randf_range(0.4,0.9)))
+		planetArr.append(planett)
+		add_child(planett)
 	
 	$laser.position = Vector2(screen_size.x - 100, screen_size.y - 100)
 	$laser.rotate(-PI/2)

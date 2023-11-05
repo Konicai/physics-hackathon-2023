@@ -15,6 +15,11 @@ run/main_scene="res://MainMenu.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Global.gd"
+Attempts="*res://Attempts.gd"
+
 [display]
 
 window/size/viewport_width=1300
@@ -59,6 +64,7 @@ rotate_counter_clockwise={
 
 [rendering]
 
+environment/defaults/default_clear_color=Color(0.101961, 0.223529, 0.415686, 1)
 texture={
 "compress/hdr_mode": 0,
 "compress/lossy_quality": 0.7,
