@@ -10,6 +10,7 @@ var mirror_scene = preload("res://Mirror.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("hey")
 	var screen_size = get_viewport_rect().size
 	$laser.position = Vector2(screen_size.x / 2, screen_size.y - 200)
 	$topWall.position = Vector2(screen_size.x / 2, 0)

@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://druuutmrodqgy"]
+[gd_scene load_steps=6 format=3 uid="uid://druuutmrodqgy"]
 
 [ext_resource type="Script" path="res://Mirror.gd" id="1_tjdyq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_32p2p"]
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="Gradient" id="Gradient_1lbwk"]
 offsets = PackedFloat32Array(0.100457, 0.538813)
@@ -11,11 +15,16 @@ fill_from = Vector2(1, 0)
 fill_to = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmg2k"]
-size = Vector2(22.5, 262)
+size = Vector2(22.25, 263)
 
 [node name="Mirror" type="RigidBody2D"]
+mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_32p2p")
 gravity_scale = 0.0
+contact_monitor = true
+can_sleep = false
 freeze = true
+freeze_mode = 1
 script = ExtResource("1_tjdyq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -23,8 +32,11 @@ scale = Vector2(0.34375, 4.125)
 texture = SubResource("GradientTexture2D_2pikc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.125, -0.5)
 shape = SubResource("RectangleShape2D_tmg2k")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

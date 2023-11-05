@@ -44,3 +44,12 @@ func _on_input_event(viewport, event, shape_idx):
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if not event.pressed:
 				print("you let go")
+
+
+func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	print("mirror hit")
+ # Replace with function body.
+
+
+func _on_body_entered(body):
+	print("mirror hit2") # Replace with function body.

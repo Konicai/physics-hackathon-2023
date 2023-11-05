@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq4fsaxnb7c0s"]
+[gd_scene load_steps=10 format=3 uid="uid://bq4fsaxnb7c0s"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_5qf71"]
 [ext_resource type="Texture2D" uid="uid://be6tqn35jxum8" path="res://assets/emitter.png" id="2_dbbpf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4aoho"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7o4sv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ikg70"]
 normal = Vector2(-0.975646, -0.219351)
@@ -12,6 +14,8 @@ distance = 1.99996
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ieauo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pgsga"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mlkn0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_14xyn"]
 
@@ -33,6 +37,7 @@ texture = ExtResource("2_dbbpf")
 
 [node name="bottomWall" type="StaticBody2D" parent="."]
 position = Vector2(9, 20)
+physics_material_override = SubResource("PhysicsMaterial_7o4sv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bottomWall"]
 position = Vector2(-0.8, -0.300001)
@@ -56,6 +61,7 @@ shape = SubResource("WorldBoundaryShape2D_pgsga")
 [node name="rightWall" type="StaticBody2D" parent="."]
 position = Vector2(1510, -1406)
 rotation = -1.5708
+physics_material_override = SubResource("PhysicsMaterial_mlkn0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rightWall"]
 shape = SubResource("WorldBoundaryShape2D_14xyn")
