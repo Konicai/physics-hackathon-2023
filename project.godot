@@ -70,6 +70,7 @@ absorber={
 [physics]
 
 common/physics_ticks_per_second=200
+2d/default_gravity_vector=Vector2(0, 0)
 
 [rendering]
 

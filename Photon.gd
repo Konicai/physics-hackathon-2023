@@ -24,24 +24,7 @@ func isFrozen():
 	return frozen
 
 func _on_body_entered(body):
-#	print("collided with: " + body.name)
 	if "Wall" in body.name or "Absorber" in body.name:
-#		get_tree().paused = true
 		print("freezing")
 		frozen = true
 		lost_round = true
-		
-		
-func _physics_process(delta):
-	# Assuming gravity is along the y-axis
-	var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
-	var gravity_force = Vector2(0, 1.002) * gravity_value * mass
-	apply_central_impulse(-gravity_force * delta)
-
-
-func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	print("BSI: " + str(body_shape_index))
-	if body_shape_index > 0:
-		frozen = true
-		won_round = true
-		
