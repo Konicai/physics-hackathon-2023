@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cex07l2626eid"]
+[gd_scene load_steps=3 format=3 uid="uid://c7y6ovbytp6we"]
 
-[ext_resource type="Texture2D" uid="uid://bhxd1y4vu63wk" path="res://assets/obsorber.png" id="1_tfnir"]
+[ext_resource type="Texture2D" uid="uid://bhxd1y4vu63wk" path="res://assets/obsorber.png" id="1_ir2iv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fio8d"]
 size = Vector2(196, 92)
@@ -8,9 +8,7 @@ size = Vector2(196, 92)
 [node name="StaticBody2D" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(432, 325)
-texture = ExtResource("1_tfnir")
+texture = ExtResource("1_ir2iv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(432, 325)
 shape = SubResource("RectangleShape2D_fio8d")

@@ -13,9 +13,9 @@ var rng = RandomNumberGenerator.new()
 var planett = null
 var planetArr = []
 
-var obsorber_scene = preload("res://Obsorbor.tscn")
+var absorber_scene = preload("res://Absorber.tscn")
 var mirror_count = 1
-var obsorber_count = 0
+var absorber_count = 0
 
 var lens_scene = preload("res://Lens.tscn")
 
@@ -125,15 +125,15 @@ func _input(event):
 		_placeMirror()
 	elif event.is_action_pressed("fire"):
 		fire_ball()
-	elif event.is_action_pressed("obsorbor"):
-		fire_ball()
+	elif event.is_action_pressed("absorber"):
+		_placeAbsorber()
 
-func _placeObsorber():
-	obsorber_count = obsorber_count + 1
-	var new_obsorber = obsorber_scene.instantiate()
-	new_obsorber.position = get_viewport().get_mouse_position()
-	new_obsorber.name = "Obsorber" + str(obsorber_count)
-	add_child(new_obsorber)
+func _placeAbsorber():
+	absorber_count = absorber_count + 1
+	var new_absorber = absorber_scene.instantiate()
+	new_absorber.position = get_viewport().get_mouse_position()
+	new_absorber.name = "Absorber" + str(absorber_count)
+	add_child(new_absorber)
 
 func _placeMirror():
 	mirror_count = mirror_count + 1

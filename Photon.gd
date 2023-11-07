@@ -25,7 +25,7 @@ func isFrozen():
 
 func _on_body_entered(body):
 #	print("collided with: " + body.name)
-	if "Wall" in body.name or "Obsorber" in body.name:
+	if "Wall" in body.name or "Absorber" in body.name:
 #		get_tree().paused = true
 		print("freezing")
 		frozen = true
