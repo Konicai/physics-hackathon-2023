@@ -118,10 +118,10 @@ func set_try_label() -> void:
 func _input(event):
 	if event.is_action_pressed("mirror"):
 		_placeMirror()
-    elif event.is_action_pressed("fire"):
-        fire_ball()
-    elif event.is_action_pressed("Obsorber"):
-        fire_ball()
+	elif event.is_action_pressed("fire"):
+		fire_ball()
+	elif event.is_action_pressed("Obsorber"):
+		fire_ball()
 
 func _placeObsorber():
 	var new_obsorber = obsorber_scene.instantiate()
