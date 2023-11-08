@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_play_btn_pressed():
-	get_tree().change_scene_to_file("res://Level.tscn")
+	get_tree().change_scene_to_file("res://level.tscn")
 	Global.menu = false
 
 

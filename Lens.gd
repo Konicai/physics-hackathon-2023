@@ -3,7 +3,7 @@ extends Area2D
 var vertices: PackedVector2Array = [Vector2(0, 0), Vector2(0, 50), Vector2(200, 50), Vector2(200, 0)]
 var outline_width: int = 10 # default
 
-var photon_scene: PackedScene = preload("res://Photon.tscn")
+var photon_scene: PackedScene = preload("res://photon.tscn")
 
 # dragging and rotating
 var rotate_speed: float = PI

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dc2agamybf56"]
 
-[ext_resource type="Script" path="res://Receptor.gd" id="1_8b8p1"]
+[ext_resource type="Script" path="res://receptor.gd" id="1_8b8p1"]
 [ext_resource type="Texture2D" uid="uid://bogocwvvjpwdf" path="res://assets/receptor.png" id="1_b7yrq"]
 
 [node name="Receptor" type="RigidBody2D"]

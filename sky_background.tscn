@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://crxsks3bq3skx"]
 
-[ext_resource type="Script" path="res://SkyBackground.gd" id="1_y0hex"]
+[ext_resource type="Script" path="res://sky_background.gd" id="1_y0hex"]
 
 [node name="SkyBackground" type="Node2D"]
 

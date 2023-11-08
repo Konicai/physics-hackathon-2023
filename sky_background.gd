@@ -6,7 +6,7 @@ var END_COLOUR = [46, 61, 111]
 # -1 - RGB colour values are decreasing
 var dir= 1; 
 var wait_counter = 0
-var twinklePack = preload("res://Twinkle.tscn")
+var twinklePack = preload("res://twinkle.tscn")
 #used to randomly create twinkles throughout background
 var rng = RandomNumberGenerator.new()
 var title_cont

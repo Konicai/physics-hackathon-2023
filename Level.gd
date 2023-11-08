@@ -1,23 +1,23 @@
 extends Node2D
 
-var ball_scene = preload("res://Photon.tscn")
+var ball_scene = preload("res://photon.tscn")
 var launch_speed = Vector2(-1500, 0)
 var ball_to_launch = null
 var ball_fired = false
 var last_ball_position = Vector2()
 
-var mirror_scene = preload("res://Mirror.tscn")
-var planet = preload("res://Grav.tscn")
-var receptor_scene = preload("res://Receptor.tscn")
+var mirror_scene = preload("res://mirror.tscn")
+var planet = preload("res://grav.tscn")
+var receptor_scene = preload("res://receptor.tscn")
 var rng = RandomNumberGenerator.new()
 var planett = null
 var planetArr = []
 
-var absorber_scene = preload("res://Absorber.tscn")
+var absorber_scene = preload("res://absorber.tscn")
 var mirror_count = 1
 var absorber_count = 0
 
-var lens_scene = preload("res://Lens.tscn")
+var lens_scene = preload("res://lens.tscn")
 
 var won_round = false
 var lost_round = false

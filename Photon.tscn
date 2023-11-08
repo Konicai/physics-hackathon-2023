@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj3t1skls7gob"]
 
-[ext_resource type="Script" path="res://Photon.gd" id="1_ack88"]
-[ext_resource type="Texture2D" uid="uid://dv31jfxt2arni" path="res://assets/photon.png" id="2_xotwt"]
+[ext_resource type="Script" path="res://photon.gd" id="1_c8y6x"]
+[ext_resource type="Texture2D" uid="uid://dv31jfxt2arni" path="res://assets/photon.png" id="2_6wb70"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uhduo"]
 friction = 0.0
@@ -17,7 +17,7 @@ max_contacts_reported = 50
 contact_monitor = true
 can_sleep = false
 lock_rotation = true
-script = ExtResource("1_ack88")
+script = ExtResource("1_c8y6x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.8, 2.8)
@@ -25,7 +25,7 @@ shape = SubResource("CircleShape2D_wtx33")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.0867165, 0.0867165)
-texture = ExtResource("2_xotwt")
+texture = ExtResource("2_6wb70")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

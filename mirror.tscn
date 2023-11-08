@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://druuutmrodqgy"]
 
-[ext_resource type="Script" path="res://Mirror.gd" id="1_tjdyq"]
+[ext_resource type="Script" path="res://mirror.gd" id="1_tjdyq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_32p2p"]
 friction = 0.0
