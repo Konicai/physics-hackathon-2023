@@ -122,8 +122,8 @@ func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, 
 	var angle = interface_vec.angle_to(ray_velocity)
 	
 	angle = abs(angle)
-	if angle > PI / 4:
-		angle = PI / 2 - angle
+	if angle > PI / 2:
+		angle = PI - angle
 	
 		
 
